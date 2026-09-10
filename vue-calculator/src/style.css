@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-calc-bg: #1e1e2e;
+  --color-calc-surface: #313244;
+  --color-calc-surface-hover: #45475a;
+  --color-calc-text: #cdd6f4;
+  --color-calc-text-muted: #a6adc8;
+  --color-calc-accent: #89b4fa;
+  --color-calc-accent-hover: #74a9f7;
+  --color-calc-operator: #fab387;
+  --color-calc-operator-hover: #f9a87c;
+  --color-calc-equal: #a6e3a1;
+  --color-calc-equal-hover: #94d891;
+  --color-calc-clear: #f38ba8;
+  --color-calc-clear-hover: #ed7799;
+  --color-calc-memory: #cba6f7;
+  --color-calc-memory-hover: #b891eb;
+  --color-calc-border: #45475a;
+  --color-calc-history: #181825;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background-color: #11111b;
+  color: var(--color-calc-text);
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInHistory {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.35s ease-out both;
+}
+
+.calc-btn {
+  transform: translateY(0);
+  transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calc-btn:active:not(:disabled) {
+  transform: translateY(1px) scale(0.97);
+}
+
+.calc-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.history-item {
+  animation: slideInHistory 0.25s ease-out both;
+}
+
+.display-enter {
+  animation: fadeInUp 0.18s ease-out both;
+}
